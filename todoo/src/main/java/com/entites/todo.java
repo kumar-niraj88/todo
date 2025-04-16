@@ -9,10 +9,18 @@ import javax.persistence.Id;
 @Entity
 public class todo {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int todoid;
 	private String todoTitile;
 	private String todoContent;
+	public int getTodoid() {
+		return todoid;
+	}
+
+
+	public void setTodoid(int todoid) {
+		this.todoid = todoid;
+	}
 	private java.util.Date todoDate;
 	public todo(String todoTitile, String todoContent, Date todoDate) {
 		super();

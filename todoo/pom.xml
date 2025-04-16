@@ -17,26 +17,25 @@
 			<version>5.4.5.Final</version>
 		</dependency>
 
-
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>4.3.13.RELEASE</version>
+			<version>5.3.18</version> <!-- or whatever version you're using -->
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
-			<version>4.3.13.RELEASE</version>
+			<version>5.3.13</version>
 		</dependency>
 
-		
 
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.29</version> <!-- Use the appropriate version -->
+			<version>8.0.33</version>
 		</dependency>
 
 
@@ -54,6 +53,16 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jasper -->
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-jasper</artifactId>
+			<version>9.0.74</version>
+		</dependency>
+
+
 	</dependencies>
 	<build>
 		<finalName>todoo</finalName>

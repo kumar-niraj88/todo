@@ -14,11 +14,13 @@
 	<tx:annotation-driven/>
 
 	<context:component-scan base-package="com"></context:component-scan>
+	
+	
 
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="WEB-INF/pages/" />
+		<property name="prefix" value="/WEB-INF/pages/" />
 		<property name="suffix" value=".jsp" />
 
 	</bean>
@@ -74,6 +76,9 @@
 
 
 	</bean>
+	
+	
+	
 
 
 	<bean class="org.springframework.orm.hibernate5.HibernateTransactionManager"
@@ -84,6 +89,9 @@
 
 	</bean>
 
+
+<!-- Enable method overriding (for DELETE, PUT) -->
+    <bean id="hiddenHttpMethodFilter" class="org.springframework.web.filter.HiddenHttpMethodFilter" />
 
 	<!-- ... -->
 

@@ -18,6 +18,12 @@
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
 
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+	integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 <title><c:url value="${page}"></c:url></title>
 </head>
 <body>
@@ -48,7 +54,7 @@
 						class="list-group-item list-group-item-action">add TODO</a> <a
 						href='<c:url value='/home'></c:url>'
 						class="list-group-item list-group-item-action">view TODO </a> <a
-						href='<c:url value='delete'></c:url>'
+						href='<c:url value='/delete'></c:url>'
 						class="list-group-item list-group-item-action">delete TODO </a> <a
 						href='<c:url value='update'></c:url>'
 						class="list-group-item list-group-item-action">update TODO </a>
@@ -58,125 +64,41 @@
 
 			</div>
 
-
-			<%--. 
-                 
-                 about fetch function
-                 
-                 ..--%>
-
-
-
 			<div class="col-md-6">
 
-				<c:if test="${page=='home' }">
-					<h1 class="text-center">all TODO</h1>
-
+				<h1 class="text-center">delete TODO</h1>
+				<form:form action="delete" method="post" modelAttribute="todo">
 					<c:forEach items="${todos }" var="t">
 
 						<div class="card">
-
-							<div class=" card-body">
-
+							<div class=" card-body position-relative">
 								<h3>
 									<c:out value=" ${t.todoTitile }"></c:out>
 								</h3>
-
 								<p>
 									<c:out value="${t.todoContent }"></c:out>
 								</p>
-
+								
+								<a href="<c:url value='/deletes/${t.todoid }'/> ">delete</a>
 
 							</div>
 
+
 						</div>
+
 
 					</c:forEach>
 
-				</c:if>
-
-
-
-				<%--. 
-                 
-                 about add function
-                 
-                 ..--%>
-
-
-				<c:if test="${page=='add'}">
-					<h1 class="text-center">add TODO</h1>
-					<br />
-					<form:form action="saveTodo" method="post" modelAttribute="todo">
-
-						<div class="form-group">
-
-							<form:input path="todoTitile" cssClass="form-control"
-								placeholder="Enter Your Form Title"></form:input>
-
-						</div>
-
-						<div class=" form-group">
-
-							<form:textarea path="todoContent" cssStyle="height:300px"
-								cssClass="form-control" placeholder="Enter your todo Content" />
-
-						</div>
-
-						<div class="container text-center">
-
-							<button class=" btn btn-outline-success">Submit</button>
-
-						</div>
-
-					</form:form>
-
-				</c:if>
-
-
-				<c:if test="${page=='edit'}">
-					<h1 class="text-center">Edit TODO</h1>
-					<br />
-					<form:form action="<c:url value='/editTodo/${todo.todoid}'/>"
-						method="POST" modelAttribute="todo">
-						<!-- Simulate PUT method -->
-						<input type="hidden" name="_method" value="PUT" />
-
-
-					<div class="form-group">
-						<form:input type="hidden" path="todoid" value="${todo.todoid}"
-							name="todoid" />
-
-						<form:input path="todoTitile" cssClass="form-control"
-							placeholder="Enter Your Form Title" value="${todo.todoTitile}" />
-					</div>
-
-					<div class="form-group">
-						<form:textarea path="todoContent" cssStyle="height:300px"
-							cssClass="form-control" placeholder="Enter your todo Content"
-							value="${todo.todoContent}" />
-					</div>
-
-					<div class="container text-center">
-						<a href="<c:url value='/editTodo/${todo.todoid}'/>">Editybyhome</a>
-
-					</div>
-					</form:form>
-
-
-				</c:if>
-
-
-
-
-
-
+				</form:form>
 			</div>
+
 
 		</div>
 
-
 	</div>
+
+
+
 
 
 
@@ -187,6 +109,8 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 		crossorigin="anonymous"></script>
+
+
 	<script
 		src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
 		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
